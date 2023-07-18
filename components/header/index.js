@@ -46,7 +46,10 @@ function Header({ lang }) {
                 router.refresh();
               }}
               style={{
-                textDecoration: lang?.value === "en-EN" ? "underline" : "none",
+                textDecoration:
+                  lang?.value === "en-EN" || lang === undefined
+                    ? "underline"
+                    : "none",
                 cursor: "pointer",
               }}
             >

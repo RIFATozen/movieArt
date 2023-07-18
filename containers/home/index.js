@@ -31,17 +31,21 @@ function HomeContiner({
       <MoviesSection
         title={
           !title
-            ? lang.value === "en-EN"
+            ? lang?.value === "en-EN" || lang === undefined
               ? "Popular Movies"
               : "Popüler Filmler"
-            : lang.value === "en-EN"
+            : lang?.value === "en-EN" || lang === undefined
             ? "Popular Series"
             : "Popüler Diziler"
         }
         movies={topRatedMovies.slice(0, 7)}
       />
       <MoviesSection
-        title={lang.value === "en-EN" ? "Your Favorites" : "Favorilerin"}
+        title={
+          lang?.value === "en-EN" || lang === undefined
+            ? "Your Favorites"
+            : "Favorilerin"
+        }
         movies={popularMovies.slice(8, 16)}
       />
     </div>
