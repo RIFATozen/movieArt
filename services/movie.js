@@ -15,7 +15,9 @@ const fetchMovieApi = async (pathname, query = "") => {
     const cookieStore = cookies();
     const lang = cookieStore.get("lang");
     const res = await fetch(
-      `${API_URL}${pathname}?language=${lang.value}&${query}`,
+      `${API_URL}${pathname}?language=${
+        lang?.value ? lang.value : "en-EN"
+      }&${query}`,
       options
     );
     return res.json();
