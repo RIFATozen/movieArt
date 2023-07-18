@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import { BiCameraMovie } from "react-icons/bi";
 import Link from "next/link";
+import { BiCameraMovie } from "react-icons/bi";
 import { setCookie } from "cookies-next";
-import styles from "./styles.module.css";
 import { useRouter } from "next/navigation";
+import styles from "./styles.module.css";
 
 function Header({ lang }) {
   const addCustomCookie = (ln) => {
@@ -22,9 +22,9 @@ function Header({ lang }) {
           <BiCameraMovie /> movieArt
         </Link>
         <nav className={styles.navigationMenu}>
-          <Link href="/">{lang.value === "tr-TR" ? "Filmler" : "Movies"}</Link>
+          <Link href="/">{lang?.value === "tr-TR" ? "Filmler" : "Movies"}</Link>
           <Link href="/series">
-            {lang.value === "tr-TR" ? "Diziler" : "Series"}
+            {lang?.value === "tr-TR" ? "Diziler" : "Series"}
           </Link>
           <div>
             <span
@@ -33,7 +33,7 @@ function Header({ lang }) {
                 router.refresh();
               }}
               style={{
-                textDecoration: lang.value === "tr-TR" ? "underline" : "none",
+                textDecoration: lang?.value === "tr-TR" ? "underline" : "none",
                 cursor: "pointer",
               }}
             >
@@ -46,7 +46,7 @@ function Header({ lang }) {
                 router.refresh();
               }}
               style={{
-                textDecoration: lang.value === "en-EN" ? "underline" : "none",
+                textDecoration: lang?.value === "en-EN" ? "underline" : "none",
                 cursor: "pointer",
               }}
             >
