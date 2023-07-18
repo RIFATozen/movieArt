@@ -30,7 +30,7 @@ function HomeContiner({
       )}
       <MoviesSection
         title={
-          !title
+          title !== "series"
             ? lang?.value === "en-EN" || lang === undefined
               ? "Popular Movies"
               : "Popüler Filmler"
