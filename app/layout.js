@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import { cookies } from "next/headers";
 
 import "@/styles/reset.css";
 import "@/styles/global.css";
@@ -14,12 +15,16 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const cookieStore = cookies();
+  const lang = cookieStore.get("lang");
   return (
     <html lang="en" className={inter.className}>
-      <body className="container">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+      <body>
+        <div className="container">
+          <Header lang={lang} />
+          <main>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
